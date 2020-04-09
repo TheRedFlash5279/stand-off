@@ -143,6 +143,11 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         projectile.setVelocity(100, 0)
     }
 })
+controller.player2.onButtonEvent(ControllerButton.Up, ControllerButtonEvent.Pressed, function () {
+    if (info.life() == 1) {
+        info.player2.changeLifeBy(1)
+    }
+})
 controller.player2.onButtonEvent(ControllerButton.B, ControllerButtonEvent.Pressed, function () {
     mySprite2.setVelocity(0, -65)
     pause(350)
@@ -150,6 +155,11 @@ controller.player2.onButtonEvent(ControllerButton.B, ControllerButtonEvent.Press
 })
 sprites.onOverlap(SpriteKind.Player2, SpriteKind.Projectile, function (sprite, otherSprite) {
     info.player2.changeLifeBy(-1)
+})
+controller.up.onEvent(ControllerButtonEvent.Repeated, function () {
+    if (info.life() == 1) {
+        info.changeLifeBy(1)
+    }
 })
 info.onCountdownEnd(function () {
     info.changeScoreBy(1)
@@ -367,5 +377,5 @@ mySprite.setPosition(35, 75)
 mySprite2.setPosition(129, 75)
 game.splash("A will make you Shoot B will make you Jump!")
 info.startCountdown(3)
-info.setLife(1)
-info.player2.setLife(1)
+info.setLife(2)
+info.player2.setLife(2)
