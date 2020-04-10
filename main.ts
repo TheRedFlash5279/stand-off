@@ -126,6 +126,7 @@ info.player2.onLifeZero(function () {
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
     info.changeLifeBy(-1)
+    pause(200)
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     if (info.score() == 1) {
@@ -164,6 +165,7 @@ controller.player2.onButtonEvent(ControllerButton.B, ControllerButtonEvent.Press
 })
 sprites.onOverlap(SpriteKind.Player2, SpriteKind.Projectile, function (sprite, otherSprite) {
     info.player2.changeLifeBy(-1)
+    pause(200)
 })
 controller.up.onEvent(ControllerButtonEvent.Repeated, function () {
     if (info.life() == 1) {
