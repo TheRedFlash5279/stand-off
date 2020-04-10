@@ -117,6 +117,10 @@ c c c . . . . . . . . . . . . .
         Projectile2.setVelocity(-100, 0)
     }
 })
+info.player2.onLifeZero(function () {
+    game.splash("Red Wins!")
+    game.reset()
+})
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
     info.changeLifeBy(-1)
 })
@@ -163,6 +167,10 @@ controller.up.onEvent(ControllerButtonEvent.Repeated, function () {
 })
 info.onCountdownEnd(function () {
     info.changeScoreBy(1)
+})
+info.onLifeZero(function () {
+    game.splash("Black Wins!")
+    game.reset()
 })
 controller.player2.onButtonEvent(ControllerButton.Down, ControllerButtonEvent.Released, function () {
     tiles.setWallAt(tiles.getTileLocation(6, 4), false)
