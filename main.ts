@@ -62,6 +62,7 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
 . . 6 6 6 6 6 6 . . . . . . . . 
 `, SpriteKind.Player)
     mySprite3.setPosition(49, 71)
+    music.baDing.play()
 })
 controller.player2.onButtonEvent(ControllerButton.Down, ControllerButtonEvent.Pressed, function () {
     tiles.setWallAt(tiles.getTileLocation(6, 4), true)
@@ -84,6 +85,7 @@ controller.player2.onButtonEvent(ControllerButton.Down, ControllerButtonEvent.Pr
 . . . . . . . 6 6 6 6 6 6 6 . . 
 `, SpriteKind.Player)
     mySprite4.setPosition(114, 71)
+    music.baDing.play()
 })
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     mySprite.setVelocity(0, -65)
@@ -115,6 +117,7 @@ c c c . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . . 
 `, mySprite2, -50, 0)
         Projectile2.setVelocity(-100, 0)
+        music.pewPew.play()
     }
 })
 info.player2.onLifeZero(function () {
@@ -145,11 +148,13 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 . . . . . . . . . . . . . . . . 
 `, mySprite, 50, 0)
         projectile.setVelocity(100, 0)
+        music.pewPew.play()
     }
 })
 controller.player2.onButtonEvent(ControllerButton.Up, ControllerButtonEvent.Pressed, function () {
     if (info.life() == 1) {
         info.player2.changeLifeBy(1)
+        music.magicWand.play()
     }
 })
 controller.player2.onButtonEvent(ControllerButton.B, ControllerButtonEvent.Pressed, function () {
@@ -163,6 +168,7 @@ sprites.onOverlap(SpriteKind.Player2, SpriteKind.Projectile, function (sprite, o
 controller.up.onEvent(ControllerButtonEvent.Repeated, function () {
     if (info.life() == 1) {
         info.changeLifeBy(1)
+        music.magicWand.play()
     }
 })
 info.onCountdownEnd(function () {
@@ -229,7 +235,7 @@ tiles.setTilemap(tiles.createTilemap(
 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
 `,
-            [myTiles.tile0,sprites.castle.tileGrass1,sprites.castle.tileGrass3,sprites.castle.tileGrass2,sprites.castle.rock1,myTiles.tile2,sprites.castle.tilePath2],
+            [myTiles.tile0,sprites.castle.tileGrass1,sprites.castle.tileGrass3,sprites.castle.tileGrass2,sprites.castle.rock1,myTiles.tile2,sprites.castle.tilePath2,sprites.castle.rock2],
             TileScale.Sixteen
         ))
 mySprite2 = sprites.create(img`
